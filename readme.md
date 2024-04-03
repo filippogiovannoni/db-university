@@ -64,3 +64,35 @@ SELECT * FROM `teachers` WHERE `phone` IS NULL;
 
 ```
 
+### Group By
+
+## 1. Contare quanti iscritti ci sono stati ogni anno
+
+```sql
+
+SELECT COUNT(`id`) AS `number_of_students`, YEAR(`date_of_birth`) AS `school_year` FROM `students` GROUP BY YEAR(`date_of_birth`);
+
+```
+
+## 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+```sql
+
+SELECT COUNT(`id`) AS `number_of_teachers`, `office_address` FROM `teachers` GROUP BY `office_address`;
+
+```
+
+## 3. Calcolare la media dei voti di ogni appello d'esame
+
+```sql
+
+SELECT (`exam_id`), AVG(`vote`) AS `vote_average` FROM `exam_student` GROUP BY (`exam_id`);
+
+```
+## 4. Contare quanti corsi di laurea ci sono per ogni dipartimento
+
+```sql
+
+SELECT COUNT(`id`) AS `degree_courses`, (`department_id`) FROM `degrees` GROUP BY `department_id`;
+
+```
